@@ -24,10 +24,20 @@ public class MainClass {
 
             Iterator<JSONObject> iterator = citiesFrom.iterator();
 
-            JSONUtil jsonUtil = new JSONUtil();
+            City cityFrom = null;
 
             while (iterator.hasNext()) {
-                jsonUtil.parseCityToDB(iterator.next(), "From");
+                cityFrom = new City(iterator.next(), "From");
+
+                System.out.println("");
+                System.out.println("--------------------------------------------------------------");
+                System.out.println("");
+
+                System.out.println(cityFrom);
+
+                System.out.println("");
+                System.out.println("--------------------------------------------------------------");
+                System.out.println("");
             }
         } catch (ParseException e) {
             e.printStackTrace();
