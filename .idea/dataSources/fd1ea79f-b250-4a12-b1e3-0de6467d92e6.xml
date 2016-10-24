@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Sqlite (Xerial) - TuTuDB.db">
+  <database-model serializer="dbm" rdbms="SQLITE" format-version="2.6">
+    <schema id="1">
+      <visible>1</visible>
+    </schema>
+    <table id="2" parent="1" name="cities"/>
+    <column id="3" parent="2" name="cityId">
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="4" parent="2" name="cityTitle">
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <column id="5" parent="2" name="countryTitle">
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <column id="6" parent="2" name="cityLongitude">
+      <data-type>REAL(0,-1)|6</data-type>
+    </column>
+    <column id="7" parent="2" name="cityLatitude">
+      <data-type>REAL(0,-1)|6</data-type>
+    </column>
+    <column id="8" parent="2" name="districtTitle">
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <column id="9" parent="2" name="regionTitle">
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <column id="10" parent="2" name="direction">
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <key id="11" parent="2">
+      <columns>cityId</columns>
+      <primary>1</primary>
+    </key>
+  </database-model>
+</dataSource>

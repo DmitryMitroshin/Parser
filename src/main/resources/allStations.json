@@ -16685,7 +16685,7 @@
         "longitude" : 5.046186923980713,
         "latitude" : 47.32679748535156
       },
-      "districtTitle" : "Кот-д'Ор",
+      "districtTitle" : "Кот-д''Ор",
       "cityId" : 2424,
       "cityTitle" : "Дижон",
       "regionTitle" : "Бургундия",
@@ -16696,7 +16696,7 @@
             "longitude" : 5.046186923980713,
             "latitude" : 47.32679748535156
           },
-          "districtTitle" : "Кот-д'Ор",
+          "districtTitle" : "Кот-д''Ор",
           "cityId" : 2424,
           "cityTitle" : "город Дижон",
           "regionTitle" : "Бургундия",
@@ -16727,7 +16727,7 @@
           "cityTitle" : "город Лилль",
           "regionTitle" : "Нор - Па-де-Кале",
           "stationId" : 446,
-          "stationTitle" : "BOULEVARD DE LEEDS,  en face de l' hotel CROWNE PLAZA"
+          "stationTitle" : "BOULEVARD DE LEEDS,  en face de l'' hotel CROWNE PLAZA"
         },
         {
           "countryTitle" : "Франция",
@@ -16831,7 +16831,7 @@
           "cityTitle" : "город Париж",
           "regionTitle" : "Иль-Де-Франс",
           "stationId" : 585,
-          "stationTitle" : "Carrefour entre l'avenue de la Porte de Charenton et le bvd Poniatowski (rue F. De Beagle)"
+          "stationTitle" : "Carrefour entre l''avenue de la Porte de Charenton et le bvd Poniatowski (rue F. De Beagle)"
         },
         {
           "countryTitle" : "Франция",
@@ -17403,7 +17403,7 @@
           "cityTitle" : "город Берн",
           "regionTitle" : "",
           "stationId" : 10136,
-          "stationTitle" : "Terminal autobusowy 'Bern-Neufeld' przy Studerstrasse"
+          "stationTitle" : "Terminal autobusowy ''Bern-Neufeld'' przy Studerstrasse"
         }
       ]
     },
@@ -101720,7 +101720,7 @@
         "longitude" : 5.046186923980713,
         "latitude" : 47.32679748535156
       },
-      "districtTitle" : "Кот-д'Ор",
+      "districtTitle" : "Кот-д''Ор",
       "cityId" : 2424,
       "cityTitle" : "Дижон",
       "regionTitle" : "Бургундия",
@@ -101731,7 +101731,7 @@
             "longitude" : 5.046186923980713,
             "latitude" : 47.32679748535156
           },
-          "districtTitle" : "Кот-д'Ор",
+          "districtTitle" : "Кот-д''Ор",
           "cityId" : 2424,
           "cityTitle" : "город Дижон",
           "regionTitle" : "Бургундия",
@@ -101762,7 +101762,7 @@
           "cityTitle" : "город Лилль",
           "regionTitle" : "Нор - Па-де-Кале",
           "stationId" : 446,
-          "stationTitle" : "BOULEVARD DE LEEDS,  en face de l' hotel CROWNE PLAZA"
+          "stationTitle" : "BOULEVARD DE LEEDS,  en face de l'' hotel CROWNE PLAZA"
         },
         {
           "countryTitle" : "Франция",
@@ -102438,7 +102438,7 @@
           "cityTitle" : "город Берн",
           "regionTitle" : "",
           "stationId" : 10136,
-          "stationTitle" : "Terminal autobusowy 'Bern-Neufeld' przy Studerstrasse"
+          "stationTitle" : "Terminal autobusowy ''Bern-Neufeld'' przy Studerstrasse"
         }
       ]
     },

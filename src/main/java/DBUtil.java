@@ -13,28 +13,42 @@ public class DBUtil {
         connection = null;
         Class.forName("org.sqlite.JDBC");
         connection = DriverManager.getConnection(pathToDB);
-        System.out.println("DB Connected!!!!!!!!!!!!!!!");
+        System.out.println("DB Connected");
     }
 
     public static void createTableCity() throws ClassNotFoundException, SQLException {
         statement = connection.createStatement();
         statement.execute("CREATE TABLE IF NOT EXISTS 'cities' (" +
-                "'cityId' INTEGER PRIMARY KEY NOT NULL UNIQUE," +
-                "'cityTitle' TEXT NOT NULL," +
-                "'countryTitle' TEXT NOT NULL," +
-                "'cityLongitude' REAL NOT NULL," +
-                "'cityLatitude' REAL NOT NULL," +
-                "'districtTitle' TEXT NOT NULL," +
-                "'regionTitle' TEXT NOT NULL," +
-                "'direction' TEXT NOT NULL);");
+                "'id' INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "'cityId' INTEGER," +
+                "'cityTitle' TEXT," +
+                "'countryTitle' TEXT," +
+                "'cityLongitude' REAL," +
+                "'cityLatitude' REAL," +
+                "'districtTitle' TEXT," +
+                "'regionTitle' TEXT," +
+                "'direction' TEXT);");
         System.out.println("Table created or already exist");
     }
 
-    public static void writeDB() throws ClassNotFoundException, SQLException {
-
+    public static void writeCityToDB(City city) throws ClassNotFoundException, SQLException {
+        statement.execute("INSERT INTO 'cities' ('cityId', 'cityTitle', 'countryTitle', 'cityLongitude', " +
+                "'cityLatitude', 'districtTitle', 'regionTitle', 'direction') VALUES " +
+                "('" + city.getCityId() + "', " +
+                "'" + city.getCityTitle() + "', " +
+                "'" + city.getCountryTitle() + "', " +
+                "'" + city.getCityLongitude() + "', " +
+                "'" + city.getCityLatitude() + "', " +
+                "'" + city.getDistrictTitle() + "', " +
+                "'" + city.getRegionTitle() + "', " +
+                "'" + city.getDirection() + "');");
     }
 
     public static void closeDB() throws ClassNotFoundException, SQLException {
+        connection.close();
+        statement.close();
+        resultSet.close();
 
+        System.out.println("DB Disconnected");
     }
 }
