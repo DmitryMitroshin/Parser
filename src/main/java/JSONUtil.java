@@ -5,6 +5,8 @@ import org.json.simple.JSONObject;
  */
 public class JSONUtil {
 
+    // Считывает из JSON файла все объекты типа Город из обоих массивов.
+    // Включает дополнительное поле для указания дополнения.
     public void parseCityToDB(JSONObject jsonObject, String direction) {
 
         String countryTitle = (String) jsonObject.get("countryTitle");
@@ -16,15 +18,14 @@ public class JSONUtil {
         String cityTitle = (String) jsonObject.get("cityTitle");
         String regionTitle = (String) jsonObject.get("regionTitle");
 
-        System.out.println("Country: " + countryTitle);
-        System.out.println("Longitude: " + cityLongitude);
-        System.out.println("Latitude: " + cityLatitude);
-        System.out.println("District: " + districtTitle);
-        System.out.println("Region: " + regionTitle);
-        System.out.println("City ID: " + cityId);
-        System.out.println("City: " + cityTitle);
+        City city = new City(countryTitle, cityLongitude, cityLatitude,
+                districtTitle, cityId, cityTitle, regionTitle, direction);
 
-        System.out.println("Direction: " + direction);
+        System.out.println("");
+        System.out.println("--------------------------------------------------------------");
+        System.out.println("");
+
+        System.out.println(city);
 
         System.out.println("");
         System.out.println("--------------------------------------------------------------");
