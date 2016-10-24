@@ -12,13 +12,13 @@ public class City {
     private String direction;
 
     public City(JSONObject jsonObject, String direction) {
+        cityId = (Long) jsonObject.get("cityId");
+        cityTitle = (String) jsonObject.get("cityTitle");
         countryTitle = (String) jsonObject.get("countryTitle");
         JSONObject cityPoints = (JSONObject) jsonObject.get("point");
         cityLongitude = (Double) cityPoints.get("longitude");
         cityLatitude = (Double) cityPoints.get("latitude");
         districtTitle = (String) jsonObject.get("districtTitle");
-        cityId = (Long) jsonObject.get("cityId");
-        cityTitle = (String) jsonObject.get("cityTitle");
         regionTitle = (String) jsonObject.get("regionTitle");
         this.direction = direction;
     }

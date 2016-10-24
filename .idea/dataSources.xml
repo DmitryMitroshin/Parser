@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="Sqlite (Xerial) - TuTuDB.db" uuid="af73cced-b648-46e8-b1f2-4006f158f261">
+    <data-source source="LOCAL" name="Sqlite (Xerial) - TuTuDB.db" uuid="6e668c10-097c-477e-b05b-c90c399d386d">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/../Data/TuTuDB.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/TuTuDB.db</jdbc-url>
     </data-source>
   </component>
 </project>
