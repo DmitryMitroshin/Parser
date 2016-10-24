@@ -11,7 +11,7 @@ import java.util.Iterator;
 
 public class MainClass {
 
-    private static final String JSONToParseFile = "C:\\Users\\Dmitry\\Desktop\\FinalProjectToTuTu\\Data\\TuTu.json";
+    private static final String JSONToParseFile = "C:\\Users\\Dmitry\\Desktop\\FinalProjectToTuTu\\Parser\\src\\main\\resources\\TuTu.json";
 
     public static void main(String[] args) {
 
@@ -23,31 +23,12 @@ public class MainClass {
             JSONArray citiesFrom = (JSONArray) mainJSONObject.get("citiesFrom");
 
             Iterator<JSONObject> iterator = citiesFrom.iterator();
-            JSONObject cityFrom = (JSONObject) iterator.next();
 
             JSONUtil jsonUtil = new JSONUtil();
 
             while (iterator.hasNext()) {
                 jsonUtil.parseCityToDB(iterator.next(), "From");
             }
-//            String countryTitle = (String) cityFrom.get("countryTitle");
-//            JSONObject cityPoints = (JSONObject) cityFrom.get("point");
-//            Double cityLongitude = (Double) cityPoints.get("longitude");
-//            Double cityLatitude = (Double) cityPoints.get("latitude");
-//            String districtTitle = (String) cityFrom.get("districtTitle");
-//            Long cityId = (Long) cityFrom.get("cityId");
-//            String cityTitle = (String) cityFrom.get("cityTitle");
-//            String regionTitle = (String) cityFrom.get("regionTitle");
-//
-//
-//            System.out.println("Country: " + countryTitle);
-//            System.out.println("Longitude: " + cityLongitude);
-//            System.out.println("Latitude: " + cityLatitude);
-//            System.out.println("District: " + districtTitle);
-//            System.out.println("Region: " + regionTitle);
-//            System.out.println("City ID: " + cityId);
-//            System.out.println("City: " + cityTitle);
-
         } catch (ParseException e) {
             e.printStackTrace();
         } catch (FileNotFoundException e) {
