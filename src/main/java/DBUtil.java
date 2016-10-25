@@ -19,8 +19,7 @@ public class DBUtil {
     public static void createTableCity() throws ClassNotFoundException, SQLException {
         statement = connection.createStatement();
         statement.execute("CREATE TABLE IF NOT EXISTS 'cities' (" +
-                "'id' INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "'cityId' INTEGER," +
+                "'cityId' INTEGER PRIMARY KEY," +
                 "'cityTitle' TEXT," +
                 "'countryTitle' TEXT," +
                 "'cityLongitude' REAL," +
@@ -42,6 +41,12 @@ public class DBUtil {
                 "'" + city.getDistrictTitle() + "', " +
                 "'" + city.getRegionTitle() + "', " +
                 "'" + city.getDirection() + "');");
+    }
+
+
+
+    public static void updateDirectionToBoth(Long cityId) throws SQLException {
+        statement.execute("UPDATE cities SET direction = 'Both' WHERE cityId = " + cityId + ";");
     }
 
     public static void closeDB() throws ClassNotFoundException, SQLException {

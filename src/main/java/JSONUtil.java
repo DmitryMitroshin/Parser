@@ -2,6 +2,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.sqlite.SQLiteException;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -26,19 +27,32 @@ public class JSONUtil {
             JSONArray citiesTo = (JSONArray) mainJSONObject.get("citiesTo");
 
             Iterator<JSONObject> iteratorFrom = citiesFrom.iterator();
-            Iterator<JSONObject> iteratorTo = citiesFrom.iterator();
+            Iterator<JSONObject> iteratorTo = citiesTo.iterator();
 
             City cityFrom = null;
             City cityTo = null;
 
-            while (iteratorFrom.hasNext() | iteratorTo.hasNext()) {
+            while (iteratorFrom.hasNext()) {
                 cityFrom = new City(iteratorFrom.next(), "From");
-                cityTo = new City(iteratorTo.next(), "To");
                 DBUtil.writeCityToDB(cityFrom);
-                DBUtil.writeCityToDB(cityTo);
             }
 
-            System.out.println("Table Filled");
+            System.out.println("From complete");
+
+            // Заполняя второй массив в БД, может оказаться, что город с данным идентификатором
+            // уже имеется в базе. В таком случае устанавливаем в БД значение его поля direction = both
+            while (iteratorTo.hasNext()) {
+                cityTo = new City(iteratorTo.next(), "To");
+                try {
+                    DBUtil.writeCityToDB(cityTo);
+                } catch (SQLiteException ex) {
+                    DBUtil.updateDirectionToBoth(cityTo.getCityId());
+                    iteratorTo.next();
+                }
+            }
+
+            System.out.println("To complete");
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
