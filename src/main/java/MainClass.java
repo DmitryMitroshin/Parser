@@ -13,12 +13,12 @@ public class MainClass {
         // была реализована функция, которая добавляет второй апостроф рядом с каждым уже имеющимся.
         // Так как последовательность из двух апострофов позволяет считать строку и корректно воспринять один из них.
 
-
         DBUtil.connectToDB(SQLiteDB);
         DBUtil.createTableCity();
-        JSONUtil.parseCities(JSONToParseFile);
+        DBUtil.createTableStation();
+        JSONUtil.parseCitiesToDB(JSONToParseFile);
+        JSONUtil.parseStationsToDB(JSONToParseFile);
 
-        // TODO Нужно закрыть подключение, когда все считаем
-//        DBUtil.closeDB();
+        DBUtil.closeDB();
     }
 }

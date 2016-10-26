@@ -9,15 +9,19 @@ public class DBUtil {
     public static Statement statement;
     public static ResultSet resultSet;
 
+    /**
+    Метод организует подключение и инициирует базу данных
+    */
     public static void connectToDB(String pathToDB) throws ClassNotFoundException, SQLException {
         connection = null;
         Class.forName("org.sqlite.JDBC");
         connection = DriverManager.getConnection(pathToDB);
+        statement = connection.createStatement();
         System.out.println("DB Connected");
     }
 
-    public static void createTableCity() throws ClassNotFoundException, SQLException {
-        statement = connection.createStatement();
+    // Метод создает в базе данных таблицу "Город"
+    public static void createTableCity() throws SQLException {
         statement.execute("CREATE TABLE IF NOT EXISTS 'cities' (" +
                 "'cityId' INTEGER PRIMARY KEY," +
                 "'cityTitle' TEXT," +
@@ -30,6 +34,18 @@ public class DBUtil {
         System.out.println("Table created or already exist");
     }
 
+    // Метод создает в базе данных таблицу "Станция"
+    public static void createTableStation() throws SQLException {
+        statement.execute("CREATE TABLE IF NOT EXISTS 'stations' (" +
+                "'stationId' INTEGER PRIMARY KEY," +
+                "'stationTitle' TEXT," +
+                "'stationLongitude' REAL," +
+                "'stationLatitude' REAL," +
+                "'cityId' INTEGER," +
+                "FOREIGN KEY('cityId') REFERENCES 'cities'('cityId'));");
+    }
+
+    // Метод записывает в таблицу "Города" объекты модели "Город"
     public static void writeCityToDB(City city) throws ClassNotFoundException, SQLException {
         statement.execute("INSERT INTO 'cities' ('cityId', 'cityTitle', 'countryTitle', 'cityLongitude', " +
                 "'cityLatitude', 'districtTitle', 'regionTitle', 'direction') VALUES " +
@@ -43,12 +59,24 @@ public class DBUtil {
                 "'" + city.getDirection() + "');");
     }
 
+    // Метод записывает в таблицу "Станции" объекты модели "Станции"
+    public static void writeStationToDB(Station station) throws SQLException {
+        statement.execute("INSERT INTO 'stations' ('stationId', 'stationTitle', 'stationLongitude', " +
+                "'stationLatitude', 'cityId') VALUES " +
+//                "'stationLatitude', 'cityId') VALUES " +
+        "('" + station.getStationId() + "'," +
+        "'" + station.getStationTitle() + "'," +
+        "'" + station.getStationLongitude() + "'," +
+        "'" + station.getStationLatitude() + "'," +
+        "'" + station.getCityId() + "');");
+    }
 
-
+    // Метод обновляет поле "Направление" записи, если она имеет оба направления.
     public static void updateDirectionToBoth(Long cityId) throws SQLException {
         statement.execute("UPDATE cities SET direction = 'Both' WHERE cityId = " + cityId + ";");
     }
 
+    // Метод закрывает подключение к базе данных
     public static void closeDB() throws ClassNotFoundException, SQLException {
         connection.close();
         statement.close();
