@@ -1,17 +1,14 @@
 import java.sql.*;
 
-/**
- * Created by Dmitry on 24.10.2016.
- */
+// Класс, предоставляющий методы для работы с базой данных
 public class DBUtil {
 
     public static Connection connection;
     public static Statement statement;
     public static ResultSet resultSet;
 
-    /**
-    Метод организует подключение и инициирует базу данных
-    */
+
+//    Метод организует подключение и инициирует базу данных
     public static void connectToDB(String pathToDB) throws ClassNotFoundException, SQLException {
         connection = null;
         Class.forName("org.sqlite.JDBC");
@@ -23,7 +20,7 @@ public class DBUtil {
     // Метод создает в базе данных таблицу "Город"
     public static void createTableCity() throws SQLException {
         statement.execute("CREATE TABLE IF NOT EXISTS 'cities' (" +
-                "'cityId' INTEGER PRIMARY KEY," +
+                "'_id' INTEGER PRIMARY KEY," +
                 "'cityTitle' TEXT," +
                 "'countryTitle' TEXT," +
                 "'cityLongitude' REAL," +
@@ -37,7 +34,7 @@ public class DBUtil {
     // Метод создает в базе данных таблицу "Станция"
     public static void createTableStation() throws SQLException {
         statement.execute("CREATE TABLE IF NOT EXISTS 'stations' (" +
-                "'stationId' INTEGER PRIMARY KEY," +
+                "'_id' INTEGER PRIMARY KEY," +
                 "'stationTitle' TEXT," +
                 "'stationLongitude' REAL," +
                 "'stationLatitude' REAL," +
@@ -47,7 +44,7 @@ public class DBUtil {
 
     // Метод записывает в таблицу "Города" объекты модели "Город"
     public static void writeCityToDB(City city) throws ClassNotFoundException, SQLException {
-        statement.execute("INSERT INTO 'cities' ('cityId', 'cityTitle', 'countryTitle', 'cityLongitude', " +
+        statement.execute("INSERT INTO 'cities' ('_id', 'cityTitle', 'countryTitle', 'cityLongitude', " +
                 "'cityLatitude', 'districtTitle', 'regionTitle', 'direction') VALUES " +
                 "('" + city.getCityId() + "', " +
                 "'" + city.getCityTitle() + "', " +
@@ -61,7 +58,7 @@ public class DBUtil {
 
     // Метод записывает в таблицу "Станции" объекты модели "Станции"
     public static void writeStationToDB(Station station) throws SQLException {
-        statement.execute("INSERT INTO 'stations' ('stationId', 'stationTitle', 'stationLongitude', " +
+        statement.execute("INSERT INTO 'stations' ('_id', 'stationTitle', 'stationLongitude', " +
                 "'stationLatitude', 'cityId') VALUES " +
 //                "'stationLatitude', 'cityId') VALUES " +
         "('" + station.getStationId() + "'," +
@@ -73,7 +70,7 @@ public class DBUtil {
 
     // Метод обновляет поле "Направление" записи, если она имеет оба направления.
     public static void updateDirectionToBoth(Long cityId) throws SQLException {
-        statement.execute("UPDATE cities SET direction = 'Both' WHERE cityId = " + cityId + ";");
+        statement.execute("UPDATE cities SET direction = 'Both' WHERE _id = " + cityId + ";");
     }
 
     // Метод закрывает подключение к базе данных

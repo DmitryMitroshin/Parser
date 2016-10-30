@@ -10,9 +10,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Iterator;
 
-/**
- * Created by Dmitry on 24.10.2016.
- */
+// Класс, предоставляющий методы для работы с JSON.
 public class JSONUtil {
 
     public static void parseCitiesToDB(String JSONToParseFile) {

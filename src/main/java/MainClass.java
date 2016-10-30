@@ -1,5 +1,6 @@
 import java.sql.SQLException;
 
+// Главный класс программы. Вызывает методы вспомогательных классов для создания базы данных и парсинга JSON файла.
 public class MainClass {
 
     private static final String JSONToParseFile = "C:\\Users\\Dmitry\\Desktop\\" +
