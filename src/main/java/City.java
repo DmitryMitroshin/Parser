@@ -57,20 +57,4 @@ public class City {
     public String getDirection() {
         return direction;
     }
-
-//    @Override
-//    public String toString() {
-//        String strCity;
-//
-//        strCity = "Country: " + countryTitle +
-//                "\nLongitude: " + cityLongitude +
-//                "\nLatitude: " + cityLatitude +
-//                "\nDistrict: " + districtTitle +
-//                "\nRegion: " + regionTitle +
-//                "\nCity ID: " + cityId +
-//                "\nCity: " + cityTitle +
-//                "\nDirection: " + direction;
-//
-//        return strCity;
-//    }
 }

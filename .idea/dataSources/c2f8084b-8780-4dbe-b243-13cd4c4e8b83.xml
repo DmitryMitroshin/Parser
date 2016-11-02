@@ -6,7 +6,7 @@
     </schema>
     <table id="2" parent="1" name="cities"/>
     <table id="3" parent="1" name="stations"/>
-    <column id="4" parent="2" name="cityId">
+    <column id="4" parent="2" name="_id">
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
     <column id="5" parent="2" name="cityTitle">
@@ -31,10 +31,10 @@
       <data-type>TEXT(0,-1)|12</data-type>
     </column>
     <key id="12" parent="2">
-      <columns>cityId</columns>
+      <columns>_id</columns>
       <primary>1</primary>
     </key>
-    <column id="13" parent="3" name="stationId">
+    <column id="13" parent="3" name="_id">
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
     <column id="14" parent="3" name="stationTitle">
@@ -50,7 +50,7 @@
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
     <key id="18" parent="3">
-      <columns>stationId</columns>
+      <columns>_id</columns>
       <primary>1</primary>
     </key>
     <foreign-key id="19" parent="3" name="#FAKE_stations_1">

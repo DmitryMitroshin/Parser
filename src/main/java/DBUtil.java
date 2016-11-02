@@ -39,7 +39,7 @@ public class DBUtil {
                 "'stationLongitude' REAL," +
                 "'stationLatitude' REAL," +
                 "'cityId' INTEGER," +
-                "FOREIGN KEY('cityId') REFERENCES 'cities'('cityId'));");
+                "FOREIGN KEY('cityId') REFERENCES 'cities'('_id'));");
     }
 
     // Метод записывает в таблицу "Города" объекты модели "Город"
