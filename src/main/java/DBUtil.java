@@ -39,6 +39,7 @@ public class DBUtil {
                 "'stationLongitude' REAL," +
                 "'stationLatitude' REAL," +
                 "'cityId' INTEGER," +
+                "'stationDirection' TEXT," +
                 "FOREIGN KEY('cityId') REFERENCES 'cities'('_id'));");
     }
 
@@ -59,18 +60,23 @@ public class DBUtil {
     // Метод записывает в таблицу "Станции" объекты модели "Станции"
     public static void writeStationToDB(Station station) throws SQLException {
         statement.execute("INSERT INTO 'stations' ('_id', 'stationTitle', 'stationLongitude', " +
-                "'stationLatitude', 'cityId') VALUES " +
+                "'stationLatitude', 'cityId', 'stationDirection') VALUES " +
 //                "'stationLatitude', 'cityId') VALUES " +
         "('" + station.getStationId() + "'," +
         "'" + station.getStationTitle() + "'," +
         "'" + station.getStationLongitude() + "'," +
         "'" + station.getStationLatitude() + "'," +
-        "'" + station.getCityId() + "');");
+        "'" + station.getCityId() + "'," +
+        "'" + station.getStationDirection() + "');");
     }
 
     // Метод обновляет поле "Направление" записи, если она имеет оба направления.
     public static void updateDirectionToBoth(Long cityId) throws SQLException {
         statement.execute("UPDATE cities SET direction = 'Both' WHERE _id = " + cityId + ";");
+    }
+
+    public static void updateStationDirectionToBoth(Long stationId) throws SQLException {
+        statement.execute("UPDATE stations SET stationDirection = 'Both' WHERE _id = " + stationId + ";");
     }
 
     // Метод закрывает подключение к базе данных

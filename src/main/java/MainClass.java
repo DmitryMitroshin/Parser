@@ -20,6 +20,6 @@ public class MainClass {
         JSONUtil.parseCitiesToDB(JSONToParseFile);
         JSONUtil.parseStationsToDB(JSONToParseFile);
 
-        DBUtil.closeDB();
+//        DBUtil.closeDB();
     }
 }

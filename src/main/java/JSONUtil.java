@@ -93,7 +93,7 @@ public class JSONUtil {
                 iteratorCityFrom = stationsCityFrom.iterator();
 
                 while (iteratorCityFrom.hasNext()) {
-                    station = new Station(iteratorCityFrom.next());
+                    station = new Station(iteratorCityFrom.next(), "From");
                     DBUtil.writeStationToDB(station);
                 }
             }
@@ -104,10 +104,11 @@ public class JSONUtil {
                 stationsCityTo = (JSONArray) iteratorTo.next().get("stations");
                 iteratorCityTo = stationsCityTo.iterator();
                 while (iteratorCityTo.hasNext()) {
-                    station = new Station(iteratorCityTo.next());
+                    station = new Station(iteratorCityTo.next(), "To");
                     try {
                         DBUtil.writeStationToDB(station);
                     } catch (SQLiteException ex) {
+                        DBUtil.updateStationDirectionToBoth(station.getStationId());
                         continue;
                     }
                 }

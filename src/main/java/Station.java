@@ -10,14 +10,16 @@ public class Station {
     private Double stationLongitude;
     private Double stationLatitude;
     private Long cityId;
+    private String stationDirection;
 
-    public Station(JSONObject jsonObject) {
+    public Station(JSONObject jsonObject, String stationDirection) {
         stationId = (Long) jsonObject.get("stationId");
         stationTitle = (String) jsonObject.get("stationTitle");
         JSONObject stationPoint = (JSONObject) jsonObject.get("point");
         stationLongitude = (Double) stationPoint.get("stationLongitude");
         stationLatitude = (Double) stationPoint.get("stationLatitude");
         cityId = (Long) jsonObject.get("cityId");
+        this.stationDirection = stationDirection;
     }
 
     public Station() {
@@ -37,6 +39,10 @@ public class Station {
 
     public Double getStationLatitude() {
         return stationLatitude;
+    }
+
+    public String getStationDirection() {
+        return stationDirection;
     }
 
     public Long getCityId() {
