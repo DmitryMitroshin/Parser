@@ -24,9 +24,6 @@ public class JSONUtil {
             JSONArray citiesFrom = (JSONArray) mainJSONObject.get("citiesFrom");
             JSONArray citiesTo = (JSONArray) mainJSONObject.get("citiesTo");
 
-            System.out.println("Size of cities From = " + citiesFrom.size());
-            System.out.println("Size of cities To = " + citiesTo.size());
-
             Iterator<JSONObject> iteratorFrom = citiesFrom.iterator();
             Iterator<JSONObject> iteratorTo = citiesTo.iterator();
 
